@@ -20,7 +20,7 @@ class TranscriptExtractor:
         Raises:
             ValueError: If the URL is not a valid YouTube URL.
         """
-        
+
 
         if "youtu.be" in self.url:
             return self.url.split("/")[-1]
@@ -48,3 +48,5 @@ if __name__ == "__main__":
         print(get_transcriptor)
     else:
         print("No transcript available.")
+
+        
