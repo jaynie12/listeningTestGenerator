@@ -9,6 +9,9 @@
 *.pyc
 __pycache__/  
 
+#environmentVariables.py
+environmentVariables.py
+backEnd/environmentVariables.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
