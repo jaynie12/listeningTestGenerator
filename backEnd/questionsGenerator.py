@@ -16,12 +16,20 @@ class questionsGenerator:
             raise ValueError("OpenAI API key is not set in environment variables.")
         
     def generateListeningTest(self):
+        """Generates a listening comprehension test based on the provided transcript.
+        Returns:
+            str: The generated listening comprehension questions.
+        """
         try:
-            completion = self.client.chat.completions.create(
+            completion = self.client.chat.completions.create (
                 model="gpt-3.5-turbo",
                 messages=[
                     {
-                        "role": self.role,
+                        "role": 'system', #role of system defines the behavior of the AI
+                        "content": self.role,
+                    },
+                    {
+                        "role": 'user', #role of user defines the input to the AI
                         "content": self.input_str,
                     }
                 ],
@@ -35,18 +43,8 @@ class questionsGenerator:
 if __name__ == "__main__":
     # Example usage
     transcript = "Bonjour, je m'appelle Pierre."
-    prompt = """
-    You are a French teacher.
-    Based on the transcript of a spoken French video, write 5 to 10 listening comprehension questions.
-
-    Transcript:
-    \"\"\"
-    {transcript}
-    \"\"\"
-    """
-    role = "system"
-    input_str = prompt.format(transcript=transcript)
-    
+    role = "You are a French teacher. Your task is to create listening comprehension questions based on the provided transcript."
+    input_str = "Create a listening comprehension test based on the following transcript: " + transcript    
     generator = questionsGenerator(transcript, role, input_str)
     questions = generator.generateListeningTest()
     print(questions)  # Output the generated questions
