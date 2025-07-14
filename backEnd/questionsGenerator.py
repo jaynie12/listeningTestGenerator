@@ -2,13 +2,14 @@ from openai import OpenAI
 from environmentVariables import ENVIRONMENT_VARIABLES
 import os
 os.environ["OPENAI_API_KEY"] = ENVIRONMENT_VARIABLES["OPENAI_API_KEY"]
+from transcriptExtractor import TranscriptExtractor
 
 
 client = OpenAI()
 # Initialize OpenAI client with your API key
 class questionsGenerator:
-    def __init__(self, transcript, role, input_str):
-        self.transcript = transcript
+    def __init__(self, url, role, input_str):
+        self.transcript = TranscriptExtractor(url).get_transcript()
         self.input_str = input_str
         self.role = role
         self.client = client

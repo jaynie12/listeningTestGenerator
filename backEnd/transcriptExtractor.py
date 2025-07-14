@@ -25,7 +25,7 @@ class TranscriptExtractor:
         if "youtu.be" in self.url:
             return self.url.split("/")[-1]
         elif "youtube.com" in self.url:
-            return self.url.split("v=")[-1].split("&")[0]
+            return self.url.split("v=")[-1].split("&")[0] # Handles both short and long YouTube URLs  #example https://www.youtube.com/watch?v=EN9lEZgyymI
         else:
             raise ValueError("Invalid YouTube URL")
     
