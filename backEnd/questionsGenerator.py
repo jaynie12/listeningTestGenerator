@@ -11,7 +11,11 @@ class questionsGenerator:
     def __init__(self, url):
         self.transcript = TranscriptExtractor(url).get_transcript()
         self.client = client
-        self.role = "You are a French teacher. Your task is to create listening comprehension questions based on the provided transcript."
+        self.role = (
+        f"You are a French teacher. Your task is to create listening comprehension questions based on the provided transcript: {self.transcript}. "
+        "The order of questions should follow the order of the video. Based on the transcript, evaluate the DELF/DALF level. "
+        "Give half the test as multiple choice and half as short written answers."
+    )
         self.input_str = "Create a listening comprehension test based on the following transcript: " + self.transcript    
 
         if not os.getenv("OPENAI_API_KEY"):

@@ -14,7 +14,7 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/home", response_class=HTMLResponse)
 def home(request: Request):
     return templates.TemplateResponse("home.html", {"request": request}) #request: Request is passed so Jinja2 can access it in your template.
-``
+
 
 # #request contains headers, cookies, query parameters, and other information about the HTTP request.
 

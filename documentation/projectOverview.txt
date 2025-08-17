@@ -4,5 +4,30 @@ Problem Statement:
 - As a language student myself, listening to audio in French is pointless without a test/listening exercise  
 as I am not actively engaging with the content
 
-Solution: 
-- Use Youtube videos that provide transcripts to generate listening tests
+Overview of solution: 
+- Use Youtube videos that provide transcripts to generate listening tests with Generative actively
+- Provide instant and unlimited tests with targeted DELF/DALF levels
+
+Technical Proposal:
+
+Phase 0:
+Output a listening test on a website
+
+Phase 1:
+Store listening tests in a database 
+Allow users to select type of questions generated
+
+Phase 3:
+Allow users to log in to view all their past tests
+
+Phase 4:
+Turn listening tests into quizes that be retaken
+
+Phase 5:
+Expand beyond French
+
+Phase 6:
+Allow teachers to assign tests to students
+
+- Create a web application that allows students to log in and view their listening tests
+- Create a quiz for them and store their score and the test in the database
