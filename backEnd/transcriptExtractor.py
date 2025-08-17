@@ -21,7 +21,6 @@ class TranscriptExtractor:
             ValueError: If the URL is not a valid YouTube URL.
         """
 
-
         if "youtu.be" in self.url:
             return self.url.split("/")[-1]
         elif "youtube.com" in self.url:

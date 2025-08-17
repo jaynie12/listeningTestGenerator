@@ -1,0 +1,8 @@
+Problem Statement:
+
+- Lack of freely available listening resources that teachers can use during their lessons 
+- As a language student myself, listening to audio in French is pointless without a test/listening exercise  
+as I am not actively engaging with the content
+
+Solution: 
+- Use Youtube videos that provide transcripts to generate listening tests

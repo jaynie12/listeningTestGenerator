@@ -8,11 +8,12 @@ from transcriptExtractor import TranscriptExtractor
 client = OpenAI()
 # Initialize OpenAI client with your API key
 class questionsGenerator:
-    def __init__(self, url, role, input_str):
+    def __init__(self, url):
         self.transcript = TranscriptExtractor(url).get_transcript()
-        self.input_str = input_str
-        self.role = role
         self.client = client
+        self.role = "You are a French teacher. Your task is to create listening comprehension questions based on the provided transcript."
+        self.input_str = "Create a listening comprehension test based on the following transcript: " + self.transcript    
+
         if not os.getenv("OPENAI_API_KEY"):
             raise ValueError("OpenAI API key is not set in environment variables.")
         
@@ -23,7 +24,7 @@ class questionsGenerator:
         """
         try:
             completion = self.client.chat.completions.create (
-                model="gpt-3.5-turbo",
+                model="gpt-5-nano",
                 messages=[
                     {
                         "role": 'system', #role of system defines the behavior of the AI
@@ -43,9 +44,7 @@ class questionsGenerator:
 
 if __name__ == "__main__":
     # Example usage
-    transcript = "Bonjour, je m'appelle Pierre."
-    role = "You are a French teacher. Your task is to create listening comprehension questions based on the provided transcript."
-    input_str = "Create a listening comprehension test based on the following transcript: " + transcript    
-    generator = questionsGenerator(transcript, role, input_str)
+    url = "https://www.youtube.com/watch?v=EN9lEZgyymI"
+    generator = questionsGenerator(url)
     questions = generator.generateListeningTest()
     print(questions)  # Output the generated questions
